@@ -140,10 +140,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        SalesPoint\Providers\AppServiceProvider::class,
+        SalesPoint\Providers\AuthServiceProvider::class,
+        SalesPoint\Providers\EventServiceProvider::class,
+        SalesPoint\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace SalesPoint\Http\Controllers\Auth;
 
-use App\User;
+use SalesPoint\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use SalesPoint\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: SalesPoint
+        psr4_prefix: SalesPoint
         src_path: app

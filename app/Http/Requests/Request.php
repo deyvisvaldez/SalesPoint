@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace SalesPoint\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
