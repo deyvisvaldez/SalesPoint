@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => SalesPoint\User::class,
+    'model' => SalesPoint\Entities\User::class,
 
     /*
     |--------------------------------------------------------------------------
