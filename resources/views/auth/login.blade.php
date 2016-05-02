@@ -8,7 +8,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/admin') }}"><b>Admin</b>LTE</a>
         </div><!-- /.login-logo -->
 
     @if (count($errors) > 0)
@@ -24,10 +24,10 @@
 
     <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-    <form action="{{ url('/auth/login') }}" method="post">
+    <form action="{{ url('/login') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email"/>
+            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
