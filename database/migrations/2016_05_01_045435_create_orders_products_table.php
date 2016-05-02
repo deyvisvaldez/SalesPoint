@@ -14,6 +14,14 @@ class CreateOrdersProductsTable extends Migration
     {
         Schema::create('orders_products', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('quantity');
+            $table->decimal('price');
+            $table->decimal('subtotal');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

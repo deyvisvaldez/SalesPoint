@@ -1,16 +1,16 @@
 <?php
 
-namespace SalesPoint;
+namespace Entities\SalesPoint;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Order extends Model
+class Customer extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'orders';
-    protected $fillable = ['total', 'date', 'user_id', 'order_id'];
+    protected $table = 'customers';
+    protected $fillable = ['firstname', 'lastname', 'dni'];
 
     /**
      * The attributes that should be mutated to dates.
