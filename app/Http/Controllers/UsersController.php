@@ -97,9 +97,19 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $this->userRepo->delete($id);
+        $user = $this->userRepo->delete($id);
+
+        $message = $user->firstname. ' was deleted.';
+
+        if ($request->ajax()) {
+            return response()->json([
+                'id'      => $user->id,
+                'message' => $message
+            ]);
+        }
+        Session::flash('message', $message);
         return redirect('admin/users');
     }
 }

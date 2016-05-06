@@ -19,7 +19,7 @@
             <td>{{ $user->email }}</td>
             <td>
                 <a href="{{ url('admin/users', $user) }}">Edit</a>
-                <a href="#!" class="btn-delete">Delete</a>
+                <a href="" class="btn-delete" data-id="{{ $user->id }}">Delete</a>
             </td>
         </tr>
         @endforeach
