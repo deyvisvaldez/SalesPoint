@@ -5,10 +5,20 @@ namespace SalesPoint\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SalesPoint\Http\Requests;
+use SalesPoint\Http\Requests\UserRequest;
 use SalesPoint\Http\Controllers\Controller;
+
+use SalesPoint\Repositories\UserRepo;
 
 class UsersController extends Controller
 {
+    protected $userRepo;
+
+    public function __construct(UserRepo $userRepo)
+    {
+        $this->userRepo = $userRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = $this->userRepo->all();
+        return view('admin.users.index', compact(['users']));
     }
 
     /**
@@ -26,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.form');
+        return view('admin.users.create');
     }
 
     /**
@@ -35,9 +46,11 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+        $user = $this->userRepo->store($data);
+        return redirect('admin/users');
     }
 
     /**
@@ -59,7 +72,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->userRepo->find($id);
+        return view('admin.users.edit', compact(['user']));
     }
 
     /**
@@ -71,7 +85,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = $this->userRepo->find($id);
+        $data = $request->all();
+        $user = $this->userRepo->update($user, $data);
+        return redirect('admin/users');
     }
 
     /**
@@ -82,6 +99,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->userRepo->delete($id);
+        return redirect('admin/users');
     }
 }

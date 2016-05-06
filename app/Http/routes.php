@@ -35,6 +35,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::post('users', 'UsersController@store');
         Route::get('users/create', 'UsersController@create');
+        Route::put('users/{id}', 'UsersController@update');
+        
+        Route::get('users', 'UsersController@index');
+        Route::get('users/{id}', 'UsersController@edit');
+
+        Route::delete('users/{id}', 'UsersController@destroy');
     });
 
     
