@@ -5,7 +5,8 @@ namespace SalesPoint\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SalesPoint\Http\Requests;
-use SalesPoint\Http\Requests\UserRequest;
+use SalesPoint\Http\Requests\CreateUserRequest;
+use SalesPoint\Http\Requests\UpdateUserRequest;
 use SalesPoint\Http\Controllers\Controller;
 
 use SalesPoint\Repositories\UserRepo;
@@ -46,7 +47,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $data = $request->all();
         $user = $this->userRepo->store($data);
@@ -83,7 +84,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $user = $this->userRepo->find($id);
         $data = $request->all();

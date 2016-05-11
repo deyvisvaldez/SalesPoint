@@ -5,7 +5,7 @@ namespace SalesPoint\Http\Requests;
 use SalesPoint\Http\Requests\Request;
 use Illuminate\Routing\Route;
 
-class UserRequest extends Request
+class UpdateUserRequest extends Request
 {
     private $route;
 
@@ -31,26 +31,14 @@ class UserRequest extends Request
      */
     public function rules()
     {
-        $rules = array(
-            'email' => 'required|email|unique:users,email',
-            'dni' => 'required|min:8|unique:users,dni',
-            'firstname' => 'required|min:2',
-            'lastname' => 'required|min:2',
-            'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required|min:8',
-        );
-
         $id = $this->route->getParameter('id');
 
-        if ($id) 
-        {
-            $rules = array(
-                'email' => 'required|email|unique:users,email'.$id,
-                'dni' => 'required|min:8|unique:users,dni'.$id,
-                'firstname' => 'required|min:2',
-                'lastname' => 'required|min:2',
-            );
-        }
+        $rules = array(
+            'email' => 'required|email|unique:users,email'.$id,
+            'dni' => 'required|min:8|unique:users,dni'.$id,
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+        );
 
         return $rules;
     }
