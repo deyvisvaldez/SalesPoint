@@ -31,7 +31,6 @@ class UserRequest extends Request
      */
     public function rules()
     {
-        //dd($this->route->getParameter('id'));
         $rules = array(
             'email' => 'required|email|unique:users,email',
             'dni' => 'required|min:8|unique:users,dni',
@@ -45,8 +44,12 @@ class UserRequest extends Request
 
         if ($id) 
         {
-            $rules['email'] = 'required|email|unique:users,email'.$id;
-            $rules['dni'] = 'required|min:8|unique:users,dni'.$id;
+            $rules = array(
+                'email' => 'required|email|unique:users,email'.$id,
+                'dni' => 'required|min:8|unique:users,dni'.$id,
+                'firstname' => 'required|min:2',
+                'lastname' => 'required|min:2',
+            );
         }
 
         return $rules;
