@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('htmlheader_title')
-    Admin Users
+    Admin Orders
 @endsection
 
 @section('contentheader_title')
-    Admin Users
+    Admin Orders
 @endsection
 
 @section('main-content')
@@ -14,7 +14,7 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-                    <h3 class="box-title">Users</h3>
+                    <h3 class="box-title">Orders</h3>
                 </div><!-- /.box-header -->
 
 				@if (Session::has('message'))
@@ -24,7 +24,7 @@
 				@endif
 
 				<div class="box-body">
-                    {{--{!! Form::model(Request::all(), ['url' => 'admin/users/index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
+                    {{--{!! Form::model(Request::all(), ['url' => 'admin/orders/index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
                       <div class="form-group">
                         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de usuario']) !!}
                         {!! Form::select('type', config('options.types'), null, ['class' => 'form-control']) !!}
@@ -33,15 +33,15 @@
                     {!! Form::close() !!}
                     --}}
 				    <p>
-				        <a class="btn btn-info" href="{{ url('admin/users/create') }}" role="button">
-				            New User
+				        <a class="btn btn-info" href="{{ url('admin/orders/create') }}" role="button">
+				            New Order
 				        </a>
 				    </p>
-				    <!-- <p>Hay {{-- $users->total() --}} usuarios</p> -->
+				    <!-- <p>Hay {{-- $orders->total() --}} usuarios</p> -->
                     
-                    @include('admin.users.partials.table')
+                    @include('admin.orders.partials.table')
                     {{--
-                    {!! $users->appends(Request::only(['name', 'type']))->render() !!}
+                    {!! $orders->appends(Request::only(['name', 'type']))->render() !!}
                     --}}
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 	</div>
 </section>
 
-<form action="{{ url('/admin/users') }}" method="post" id="form-delete">
+<form action="{{ url('/admin/orders') }}" method="post" id="form-delete">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="_method" value="delete">
 </form>
@@ -83,13 +83,13 @@ $(document).ready(function () {
         });
     });
 
-    function deleteUser(element) {
+    function deleteOrder(element) {
         console.log("Hola");
         var row = $(this).parents('tr');
         var id = row.data('id');
         console.log(id);
         var form = $('#form-delete');
-        var url = form.attr('action').replace(':USER_ID', id);
+        var url = form.attr('action').replace(':ORDER_ID', id);
         var data = form.serialize();
 
         row.fadeOut();

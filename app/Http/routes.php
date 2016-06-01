@@ -33,14 +33,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin', 'Auth\AuthController@getAdmin');
 
     Route::group(['prefix' => 'admin'], function () {
-        Route::post('users', 'UsersController@store');
-        Route::get('users/create', 'UsersController@create');
-        Route::put('users/{id}', 'UsersController@update');
-        
-        Route::get('users', 'UsersController@index');
-        Route::get('users/{id}', 'UsersController@edit');
 
+        Route::get('users', 'UsersController@index');
+        Route::get('users/create', 'UsersController@create');
+        Route::post('users', 'UsersController@store');
+        Route::get('users/{id}', 'UsersController@edit');
+        Route::put('users/{id}', 'UsersController@update');
         Route::delete('users/{id}', 'UsersController@destroy');
+
+        Route::get('orders', 'OrdersController@index');
+        Route::get('orders/create', 'OrdersController@create');
+        Route::post('orders', 'OrdersController@store');
+        Route::get('orders/{id}', 'OrdersController@edit');
+        Route::put('orders/{id}', 'OrdersController@update');
+        Route::delete('orders/{id}', 'OrdersController@destroy');
     });
 
     
