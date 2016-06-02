@@ -4,6 +4,10 @@
     Admin Orders
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+@endsection
+
 @section('contentheader_title')
     Admin Orders
 @endsection
@@ -103,6 +107,7 @@ $(document).ready(function () {
     }
 });
 
-
 </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 @endsection
