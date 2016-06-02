@@ -1,3 +1,10 @@
+<div class="col-md-12">
+    <div class="form-group">
+        <label for="customer_id">DNI</label>
+        <input type="text" name="customer_id" class="form-control" placeholder="Enter DNI">
+    </div>
+</div>
+
 <div class="col-md-6">
     <div class="form-group">
         <label for="firstname">Firstname</label>

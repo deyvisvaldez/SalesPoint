@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('htmlheader_title')
-    Create Users
+    Create Orders
 @endsection
 
 @section('contentheader_title')
-    Create Users
+    Create Orders
 @endsection
 
 @section('main-content')
@@ -13,45 +13,50 @@
     <div class="row">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Create User</h3>
+                <h3 class="box-title">Create Order</h3>
             </div><!-- /.box-header -->
 
 			@include('admin.partials.messages')
 
-            <form action="{{ url('/admin/users') }}" method="post">
+            <form action="{{ url('/admin/orders') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="box-body">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="firstname">Firstname</label>
-                            <input type="text" name="firstname" class="form-control" placeholder="Enter firstname" value="{{ old('firstname') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastname">Lastname</label>
-                            <input type="text" name="lastname" class="form-control" placeholder="Enter lastname" value="{{ old('lastname') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="dni">Dni</label>
-                            <input type="text" name="dni" class="form-control" placeholder="Enter dni"
-                            value="{{ old('dni') }}">
+                            <label for="customer_id">Customer</label>
+                            <input type="text" name="customer_id" class="form-control" placeholder="Enter DNI to search">
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter email" value="{{ old('email') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="password_confirmation">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation">
+                            <label for="item">Item</label>
+                            <input type="text" name="item" class="form-control" placeholder="Enter Item to search">
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        Tabla aquí.
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="item">Fecha</label>
+                                <input type="date" name="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="item">Total</label>
+                                <input type="number" name="total" class="form-control" min="0" placeholder="Total" readonly="">
+                            </div>
+                        </div>                        
+                    </div>
+                    
                 </div>
 
                 <div class="box-footer">
